@@ -4,3 +4,14 @@
     margin: 0;
     padding: 0;
   }
+
+  .navbar {
+  background-color: blue;
+  margin-bottom: 100px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  
+}
