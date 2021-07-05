@@ -2,7 +2,6 @@
 * {
     box-sizing: border-box;
     margin: 0;
-<<<<<<< HEAD
     padding: 0;
   }
 
@@ -14,9 +13,7 @@
 .container {
   display: flex;
   flex-direction: row;
-  
-=======
-     padding: 0; 
+  padding: 0; 
   }
 
   /* added font-family to the body */
@@ -41,5 +38,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
->>>>>>> 3a9a1edb74891d74946e78bd8597cc7731841d3f
+  justify-content: space-around;
+}
+
+.card {
+  height: 20rem;
+  width: 20rem;
+  border: 3px solid black;
+  border-radius: 20px;
+  padding: 10px;
+
 }
