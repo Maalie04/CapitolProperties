@@ -2,22 +2,43 @@
 var ApplicationKey = b2f0d79ea0mshef6e2494270b43ap1807fejsn68dd68d4adae;
 
 
-var usefrHandler = function (event) {
+var userHandler = function (event) {
     event.preventDefault();
-    var cityName = $(".city-search").val().trim();
-
-    if(cityName === ""){
-        return;
-    }
-    console.log(cityName);
-    // console.log(tempeture.value)
-
-    searchWeatherApi(cityName);
-    cityArray.push(cityName);
-    localStorage.setItem("cities", JSON.stringify(cityArray));
+    
+    localStorage.setItem("", JSON.stringify());
 };
 
 
+function searchZipCode() {
+
+    var requestUrl = 
+
+    fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+
+        
+
+            weatherTemp = data.temp;
+            console.log(weatherTemp);
+            var card = $("<div>").addClass("card").attr("style", "background-color: blue");
+            var cardTitle = $("<h2>").addClass("cardTitle").text(data.name);
+            card.append(cardTitle);
+            $(".searched-cities").append(card);
+
+            // console.log(data.temp)
+            fiveDay(data.coord.lat, data.coord.lon);
+        });
+}
+function showListingData(data){
+    var {temp, wind, humidity, uvi} = data.current;
+
+
+
+}
 
 // url: 'https://real-estate-usa.p.rapidapi.com/api/v1/properties'
 // params: {postal_code: '94105', offset: '0', limit: '200'},
