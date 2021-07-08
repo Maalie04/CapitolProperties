@@ -1,54 +1,45 @@
 /* initial box-sizing for page */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  .navbar {
-  background-color: blue;
-  margin-bottom: 100px;
+  box-sizing: border-box;
+  margin: 0;
+   padding: 0; 
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  padding: 0; 
-  }
-
-  /* added font-family to the body */
-  body {
-    font-family: Arial;
-     margin: 0;  
-     background-image: url(https://images.unsplash.com/photo-1617581629397-a72507c3de9e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8d2FzaGluZ3RvbiUyMGRjfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);  
-     background-repeat: no-repeat;
-     background-size: 100%; 
-  }
+/* added font-family to the body */
+body {
+  font-family: Arial;
+   margin: 0;  
+   background-image: url(https://images.unsplash.com/photo-1617581629397-a72507c3de9e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8d2FzaGluZ3RvbiUyMGRjfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);  
+   background-repeat: no-repeat;
+   background-size: 100%; 
+}
 
 /* added style to the navbar */
-  .navbar {
-   background-color: black; 
-   margin-bottom: 100px;  
- } 
+.navbar {
+ background-color: black; 
+ margin-bottom: 100px;  
+} 
 
- /* font in the nav bar is white */
- a {
-   color: white;
- }
+/* font in the nav bar is white */
+a {
+ color: white;
+}
 
- /* added flex wrap to the page  */
- .container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+/* added flex wrap to the page  */
+.container {
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;  
+justify-content: space-evenly; 
+align-items: stretch;
+padding: 0;
 }
 
 .card {
-  height: 20rem;
-  width: 20rem;
-  border: 3px solid black;
-  border-radius: 20px;
-  padding: 10px;
-
+border: 3px solid black;
+border-radius: 20px;
+padding: 10px;
+margin-top: 100px;   
+height: 22rem;
+width: 22rem;     
 }
