@@ -87,7 +87,6 @@ function getApi() {
                 console.log(i);
                 console.log("card.text" + i);
 
-<<<<<<< HEAD
 searchbtn.addEventListener('click', function(event) {
     event.preventDefault();
     console.log('im amazing');
@@ -119,35 +118,11 @@ function getApi() {
                 $(".card-text" + i).append("Price" + response.listings[i].price);
                 // $(".card-text1").append("Price" + response.listings[i].price);
                 // $(".card-text2").append("Price" +response.listings[i].price);
-=======
-
-                // card 2
-                // $(".card-text1").text("");
-                // $(".card-text1").append("Price: " + response.listings[i].price);
-                // $(".bed-text1").text("");
-                // $(".bed-text1").append("Bed-Rooms: " + response.listings[i].beds);
-                // $(".square-text1").text("");
-                // $(".square-text1").append("Square-Feet: " + response.listings[i].sqft);
-
-                // // card 3
-                // $(".card-text2").text("");
-                // $(".card-text2").append("Price: " + response.listings[i].price);
-                // $(".bed-text2").text("");
-                // $(".bed-text2").append("Bed-Rooms: " + response.listings[i].beds);
-                // $(".square-text2").text("");
-                // $(".square-text2").append("Square-Feet: " + response.listings[i].sqft);
-
-
->>>>>>> 20900a2b975c5e5bca5e2f5cad30f222583ebf00
             }
         })
         .catch(err => {
             console.error(err);
         });
 }
-<<<<<<< HEAD
-getApi()
+getApi();
 //gotta create a function to call into another function to run the Api Function.
-=======
-getApi()
->>>>>>> 20900a2b975c5e5bca5e2f5cad30f222583ebf00
