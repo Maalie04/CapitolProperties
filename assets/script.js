@@ -1,12 +1,18 @@
 var cityArray = JSON.parse(localStorage.getItem("cities")) || [];
+console.log(localStorage)
 
 
 
 
-
-var submitHandler = function (event) {
+ $("#search-btn").on("click", function(event){
     event.preventDefault();
+    
     var cityName = $(".city-search").val().trim();
+    var stateName = $(".state-search").val().trim();
+    var searchObject = {
+        city: cityName,
+        state: stateName,
+        }
 
     if (cityName === "") {
         return;
@@ -16,15 +22,18 @@ var submitHandler = function (event) {
     if (cityArray.indexOf(cityName) === -1) {
         cityArray.push(cityName);
     }
+    console.log(cityArray);
+ searchWeatherApi(cityName);
+ getApi(cityName,stateName);
 
-    searchWeatherApi(cityName);
+
     localStorage.setItem("cities", JSON.stringify(cityArray));
     // console.log(cityArray);
-};
+});
 
 
-function getApi() {
-    fetch("https://realty-in-us.p.rapidapi.com/properties/list-for-sale?state_code=MD&city=ocean city&offset=0&limit=200&sort=relevance", {
+function getApi(city,state) {
+    fetch("https://realty-in-us.p.rapidapi.com/properties/list-for-sale?state_code="+state+"&city="+city+"&offset=0&limit=200&sort=relevance", {
         "method": "GET",
 
 
@@ -36,17 +45,17 @@ function getApi() {
         .then(response => response.json())
         .then(response => {
             console.log(response);
-            console.log(response.listings[0].price)
-            console.log(response.listings[0].address)
+            // console.log(response.listings[0].price)
+            // console.log(response.listings[0].address)
             for (let i = 0; i < 6; i++) {
                 // card 1
-                $(".card-text" + i).text("Price: " + response.listings[i].price);
-                $(".bed-text" + i).text("Bed-Rooms: " + response.listings[i].beds);
-                $(".bath-text" + i).text("Bath-Rooms: " + response.listings[i].baths)
-                $(".square-text" + i).text("Square-Feet: " + response.listings[i].sqft);
-                $(".address-text" + i).text("Address: " + response.listings[i].address)
-                $(".img" + i).attr("src", response.listings[i].photo);
-                console.log(i);
+                // $(".card-text" + i).text("Price: " + response.listings[i].price);
+                // $(".bed-text" + i).text("Bed-Rooms: " + response.listings[i].beds);
+                // $(".bath-text" + i).text("Bath-Rooms: " + response.listings[i].baths)
+                // $(".square-text" + i).text("Square-Feet: " + response.listings[i].sqft);
+                // $(".address-text" + i).text("Address: " + response.listings[i].address)
+                // $(".img" + i).attr("src", response.listings[i].photo);
+                // console.log(i);
                 console.log("card.text" + i);
             }
         })
@@ -113,7 +122,7 @@ function searchWeatherApi(cityName) {
 
 
 getApi()
-searchWeatherApi("baltimore")
+// searchWeatherApi("baltimore")
 
 
 
