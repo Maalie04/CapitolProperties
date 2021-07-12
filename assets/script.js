@@ -1,7 +1,7 @@
 var cityArray = JSON.parse(localStorage.getItem("cities")) || [];
 console.log(localStorage)
 
-console.log(cityArray[0].state)
+// console.log(localStorage[0].state)
 
 
  $("#search-btn").on("click", function(event){
@@ -83,35 +83,14 @@ function searchWeatherApi(cityName) {
             //  console.log(data);
             $(".title").text(data.name);
             $(".text").text("Temp: ");
-            $(".temp").text(data.main.temp);
-          
-
-            // var card = $("<div>").addClass("card").attr("style", "background-color: blue");
-            // var cardTitle = $("<h2>").addClass("cardTitle").text(data.name);
-            // card.append(cardTitle);
-            // $(".searched-cities").append(card);
-
-            // var lis = document.getElementsByClassName(".temp");
-            // // document.li.innerHTML = "";
-            // console.log(data);
-            // $(".current-date").text(moment().format("MM Do YY"));
-            // $(".temp").text("");
-            // $(".cityTitle").text("");
-            // $(".wind").text("");
-            // $(".humidity").text("");
-            // $(".cityTitle").append(data.name);
-            // $(".temp").append("Temp: " + data.main.temp);
-            // $(".wind").append("Wind: " + data.wind.speed);
-            // $(".humidity").append("Humidiy: " + data.main.humidity);
-
-            // console.log(data.temp)
-
+            $(".temp").text("Current Temp: "+ data.main.temp);
+            $(".footer-text1").text(data.name)
         });
 }
 
 
-getApi(cityArray[0].city, cityArray[0].state);
-// searchWeatherApi("baltimore")
+ getApi(cityArray[0].city, cityArray[0].state);
+ searchWeatherApi(cityArray[0].city)
 
 
 
