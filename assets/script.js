@@ -1,7 +1,7 @@
 var cityArray = JSON.parse(localStorage.getItem("cities")) || [];
 console.log(localStorage)
 
-
+console.log(cityArray[0].state)
 
 
  $("#search-btn").on("click", function(event){
@@ -22,9 +22,13 @@ console.log(localStorage)
     if (cityArray.indexOf(cityName) === -1) {
         cityArray.push(cityName);
     }
+
     console.log(cityArray);
  searchWeatherApi(cityName);
- getApi(cityName,stateName);
+ getApi(cityName, stateName);
+
+
+
 
 
     localStorage.setItem("cities", JSON.stringify(cityArray));
@@ -49,13 +53,13 @@ function getApi(city,state) {
             // console.log(response.listings[0].address)
             for (let i = 0; i < 6; i++) {
                 // card 1
-                // $(".card-text" + i).text("Price: " + response.listings[i].price);
-                // $(".bed-text" + i).text("Bed-Rooms: " + response.listings[i].beds);
-                // $(".bath-text" + i).text("Bath-Rooms: " + response.listings[i].baths)
-                // $(".square-text" + i).text("Square-Feet: " + response.listings[i].sqft);
-                // $(".address-text" + i).text("Address: " + response.listings[i].address)
-                // $(".img" + i).attr("src", response.listings[i].photo);
-                // console.log(i);
+                $(".card-text" + i).text("Price: " + response.listings[i].price);
+                $(".bed-text" + i).text("Bed-Rooms: " + response.listings[i].beds);
+                $(".bath-text" + i).text("Bath-Rooms: " + response.listings[i].baths)
+                $(".square-text" + i).text("Square-Feet: " + response.listings[i].sqft);
+                $(".address-text" + i).text("Address: " + response.listings[i].address)
+                $(".img" + i).attr("src", response.listings[i].photo);
+                console.log(i);
                 console.log("card.text" + i);
             }
         })
@@ -106,22 +110,7 @@ function searchWeatherApi(cityName) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-getApi()
+getApi(cityArray[0].city, cityArray[0].state);
 // searchWeatherApi("baltimore")
 
 
