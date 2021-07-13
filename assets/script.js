@@ -42,7 +42,7 @@ function getApi(city,state) {
 
 
         "headers": {
-            "x-rapidapi-key": "f9f8fdbbf6msh903f7a4208de85cp1705ebjsn44f85ee69786",
+            "x-rapidapi-key": "b2f0d79ea0mshef6e2494270b43ap1807fejsn68dd68d4adae",
             "x-rapidapi-host": "realty-in-us.p.rapidapi.com"
         }
     })
@@ -89,8 +89,8 @@ function searchWeatherApi(cityName) {
 }
 
 
- getApi(cityArray[0].city, cityArray[0].state);
- searchWeatherApi(cityArray[0].city)
+ getApi(cityArray[].city, cityArray[0].state);
+//  searchWeatherApi(cityArray[0].city)
 
 
 
