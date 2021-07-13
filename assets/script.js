@@ -1,48 +1,50 @@
 var cityArray = JSON.parse(localStorage.getItem("cities")) || [];
 console.log(localStorage)
+var stateArray = JSON.parse(localStorage.getItem("states")) || [];
+// console.log(localStorage[0].state)
 
-console.log(cityArray[0].state)
 
-
- $("#search-btn").on("click", function(event){
+$("#search-btn").on("click", function (event) {
     event.preventDefault();
-    
+
     var cityName = $(".city-search").val().trim();
     var stateName = $(".state-search").val().trim();
     var searchObject = {
         city: cityName,
         state: stateName,
-        }
+    }
 
     if (cityName === "") {
         return;
     }
     console.log(cityName);
+    console.log(stateName);
     // makes sure previous city isnt listed in the array
     if (cityArray.indexOf(cityName) === -1) {
         cityArray.push(cityName);
     }
 
+    if (stateArray.indexOf(stateName) === -1) {
+        stateArray.push(stateName);
+    }
+
     console.log(cityArray);
- searchWeatherApi(cityName);
- getApi(cityName, stateName);
-
-
-
-
+    searchWeatherApi(cityName);
+    getApi(cityName, stateName);
 
     localStorage.setItem("cities", JSON.stringify(cityArray));
+    localStorage.setItem("states", JSON.stringify(cityArray));
     // console.log(cityArray);
 });
 
 
-function getApi(city,state) {
-    fetch("https://realty-in-us.p.rapidapi.com/properties/list-for-sale?state_code="+state+"&city="+city+"&offset=0&limit=200&sort=relevance", {
+function getApi(city, state) {
+    fetch("https://realty-in-us.p.rapidapi.com/properties/list-for-sale?state_code=" + state + "&city=" + city + "&offset=0&limit=200&sort=relevance", {
         "method": "GET",
 
 
         "headers": {
-            "x-rapidapi-key": "f9f8fdbbf6msh903f7a4208de85cp1705ebjsn44f85ee69786",
+            "x-rapidapi-key": "b2f0d79ea0mshef6e2494270b43ap1807fejsn68dd68d4adae",
             "x-rapidapi-host": "realty-in-us.p.rapidapi.com"
         }
     })
@@ -83,35 +85,14 @@ function searchWeatherApi(cityName) {
             //  console.log(data);
             $(".title").text(data.name);
             $(".text").text("Temp: ");
-            $(".temp").text(data.main.temp);
-          
-
-            // var card = $("<div>").addClass("card").attr("style", "background-color: blue");
-            // var cardTitle = $("<h2>").addClass("cardTitle").text(data.name);
-            // card.append(cardTitle);
-            // $(".searched-cities").append(card);
-
-            // var lis = document.getElementsByClassName(".temp");
-            // // document.li.innerHTML = "";
-            // console.log(data);
-            // $(".current-date").text(moment().format("MM Do YY"));
-            // $(".temp").text("");
-            // $(".cityTitle").text("");
-            // $(".wind").text("");
-            // $(".humidity").text("");
-            // $(".cityTitle").append(data.name);
-            // $(".temp").append("Temp: " + data.main.temp);
-            // $(".wind").append("Wind: " + data.wind.speed);
-            // $(".humidity").append("Humidiy: " + data.main.humidity);
-
-            // console.log(data.temp)
-
+            $(".temp").text("Current Temp: " + data.main.temp);
+            $(".footer-text1").text(data.name)
         });
 }
+// console.log(cityArray[0].city)
 
-
-getApi(cityArray[0].city, cityArray[0].state);
-// searchWeatherApi("baltimore")
+getApi("houston", "tx");
+searchWeatherApi("houston");
 
 
 
