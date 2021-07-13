@@ -1,43 +1,45 @@
 var cityArray = JSON.parse(localStorage.getItem("cities")) || [];
 console.log(localStorage)
-
+var stateArray = JSON.parse(localStorage.getItem("states")) || [];
 // console.log(localStorage[0].state)
 
 
- $("#search-btn").on("click", function(event){
+$("#search-btn").on("click", function (event) {
     event.preventDefault();
-    
+
     var cityName = $(".city-search").val().trim();
     var stateName = $(".state-search").val().trim();
     var searchObject = {
         city: cityName,
         state: stateName,
-        }
+    }
 
     if (cityName === "") {
         return;
     }
     console.log(cityName);
+    console.log(stateName);
     // makes sure previous city isnt listed in the array
     if (cityArray.indexOf(cityName) === -1) {
         cityArray.push(cityName);
     }
 
+    if (stateArray.indexOf(stateName) === -1) {
+        stateArray.push(stateName);
+    }
+
     console.log(cityArray);
- searchWeatherApi(cityName);
- getApi(cityName, stateName);
-
-
-
-
+    searchWeatherApi(cityName);
+    getApi(cityName, stateName);
 
     localStorage.setItem("cities", JSON.stringify(cityArray));
+    localStorage.setItem("states", JSON.stringify(cityArray));
     // console.log(cityArray);
 });
 
 
-function getApi(city,state) {
-    fetch("https://realty-in-us.p.rapidapi.com/properties/list-for-sale?state_code="+state+"&city="+city+"&offset=0&limit=200&sort=relevance", {
+function getApi(city, state) {
+    fetch("https://realty-in-us.p.rapidapi.com/properties/list-for-sale?state_code=" + state + "&city=" + city + "&offset=0&limit=200&sort=relevance", {
         "method": "GET",
 
 
@@ -83,14 +85,14 @@ function searchWeatherApi(cityName) {
             //  console.log(data);
             $(".title").text(data.name);
             $(".text").text("Temp: ");
-            $(".temp").text("Current Temp: "+ data.main.temp);
+            $(".temp").text("Current Temp: " + data.main.temp);
             $(".footer-text1").text(data.name)
         });
 }
+// console.log(cityArray[0].city)
 
-
- getApi(cityArray[].city, cityArray[0].state);
-//  searchWeatherApi(cityArray[0].city)
+getApi("houston", "tx");
+searchWeatherApi("houston");
 
 
 

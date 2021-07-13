@@ -35,7 +35,9 @@ body {
   margin-top: 27px;
   margin-left: 20px;
  } 
-
+ .navbar-item:hover {
+  color: blue;
+   } 
  .navbar-item1:hover {
 color: black;
  } 
@@ -53,8 +55,15 @@ color: black;
    color: black;
    font-size: 18px;
    margin-top: 14px;
-   
  }
+
+ .navbar-link:hover{
+  color: blue;
+  font-size: 18px;
+  margin-top: 14px;
+  
+}
+
 
  .navbar-start {
    font-size: 20px
