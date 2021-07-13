@@ -1,92 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="./style.css">
   <title>Capitol Properties</title>
 </head>
-
 <body>
-
-
-
-
-  <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#" id="price">Price <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" id="contacts">Contacts</a>
-        </li>
-        <li class="nav-item contacts">
-          <a class="nav-link Bed-toggle" href="#" id="contacts" role="button" data-toggle="contacts"
-            aria-haspopup="true" aria-expanded="false">
-            Bed-Bath
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="">
+        <img src="https://maxcdn.icons8.com/Share/icon/Business/copyright1600.png" width="86" height="86">
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item1">
+          Capitol Properties LLC
+        </a>
+        <p class="navbar-item2 title">
+        </p>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Info
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">
+              About
+            </a>
+            <a class="navbar-item" href="#">
+              Contact
+            </a>
           </div>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id='search-btn'>Search</button>
-      </form>
+        </div>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2 city-search" type="search" placeholder="Enter City" aria-label="Search">
+            <input class="form-control mr-sm-2 state-search" type="search" placeholder="Enter state_code" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id='search-btn'>Search</button>
+          </form>
+        </div>
+      </div>
     </div>
   </nav>
-  <!-- added container to the cards -->
   <div class="container">
+    <div class="row">
     <div class="card">
-      <img class="card-img-top img0"  src="https://ap.rdcpix.com/7390f931cdb08035b5c7f0379712708bl-m2335756863x.jpg"
-        alt="Card image cap">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img class="card-img-top img0" src="https://ap.rdcpix.com/60e2791a783568cce9c6fb9cbe59ac54l-m2840758161x.jpg"
+            alt="Placeholder image">
+        </figure>
+      </div>
       <div class="card-body">
-        <p class="card-text0">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-          <P class="bed-text0"></P>
-          <P class="square-text0"></P>
+        <p class="card-text0">Price: </p>
+        <P class="bed-text0">Bed-Rooms: </P>
+        <P class="bath-text0">Bath-Rooms: </P>
+        <P class="square-text0">Square-Feet: </P>
+        <P class="address-text0">Address: </P>
       </div>
     </div>
-
     <div class="card">
-      <img class="card-img-top img1" src="https://ap.rdcpix.com/661cd5c5f05df87201aed5eae3ab2b63l-m2930800389x.jpg"
-        alt="Card image cap">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img class="card-img-top img1" src="https://ap.rdcpix.com/908649417f33812a6b5288865211a931l-m3474354403x.jpg"
+            alt="Placeholder image">
+        </figure>
+      </div>
       <div class="card-body">
-        <p class="card-text1">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-          <P class="bed-text1"></P>
-          <P class="square-text1"></P>
+        <p class="card-text1">Price: </p>
+        <P class="bed-text1">Bed-Rooms: </P>
+        <P class="bath-text1">Bath-Rooms: </P>
+        <P class="square-text1">Square-Feet: </P>
+        <P class="address-text1">Address: </P>
       </div>
     </div>
-
     <div class="card">
-      <img class="card-img-top img2" src="https://ap.rdcpix.com/27e9472a727cff42fb91357f2ecb2c8cl-m1563583257x.jpg"
-        alt="Card image cap">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img class="card-img-top img2" src="https://ap.rdcpix.com/e944235a2aa9abeee9be2a50619e46ebl-m1977678499x.jpg"
+            alt="Placeholder image">
+        </figure>
+      </div>
       <div class="card-body">
-        <p class="card-text2">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-          <P class="bed-text2"></P>
-          <P class="square-text2"></P>
+        <p class="card-text2">Price: </p>
+        <P class="bed-text2">Bed-Rooms: </P>
+        <P class="bath-text2">Bath-Rooms: </P>
+        <P class="square-text2">Square-Feet: </P>
+        <P class="address-text2">Address: </P>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img class="card-img-top img3" src="https://ap.rdcpix.com/2140348bfc56ef64746ff07e61124f5al-m1384978648x.jpg"
+            alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-body">
+        <p class="card-text3">Price: </p>
+        <P class="bed-text3">Bed-Rooms: </P>
+        <P class="bath-text3">Bath-Rooms: </P>
+        <P class="square-text3">Square-Feet: </P>
+        <P class="address-text3">Address: </P>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img class="card-img-top img4" src="https://ap.rdcpix.com/d6b6288d1edd9e49f3f00f0b74fc9973l-m4017174493x.jpg"
+            alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-body">
+        <p class="card-text4">Price: </p>
+        <P class="bed-text4">Bed-Rooms: </P>
+        <P class="bath-text4">Bath-Rooms: </P>
+        <P class="square-text4">Square-Feet: </P>
+        <P class="address-text4">Address: </P>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <img class="card-img-top img5" src="https://ap.rdcpix.com/5b264a80282f4a75c23675eb625faabal-m347487774x.jpg"
+            alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="card-body">
+        <p class="card-text5">Price: </p>
+        <P class="bed-text5">Bed-Rooms: </P>
+        <P class="bath-text5">Bath-Rooms: </P>
+        <P class="square-text5">Square-Feet: </P>
+        <P class="address-text5">Address: </P>
       </div>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</div>
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p class="footer-text">
+      Captiol Properties LLC
+      <p class="footer-text1"> </p>
+      <p class="footer-text2 temp"> </p>
+    </p>
+  </div>
+</footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="./script.js"></script>
 </body>
-
 </html>

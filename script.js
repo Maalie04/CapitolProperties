@@ -1,129 +1,72 @@
-// var searchbtn = document.getElementById('search-btn')
-// var price = document.getElementById('price');
-// var contacts = document.getElementById('contacts');
-
-// price.addEventListener('click', function(event) {
-//     event.preventDefault();
-//     console.log('The price is right!');
-// })
-
-// contacts.addEventListener('click', function(event) {
-//     event.preventDefault();
-//     console.log('these are the contacts');
-// })
-
-
-
-// searchbtn.addEventListener('click', function(event) {
-//     event.preventDefault();
-//     console.log('im amazing');
-// })
-
-
-fetch("https://realty-in-us.p.rapidapi.com/properties/v2/list-for-sale?city=Annapolis&state_code=md&offset=0&limit=200&sort=relevance", {
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-key": "80d8f34458msh69ffe15bf82e868p178d66jsnac41a9fd8412",
-        "x-rapidapi-host": "realty-in-us.p.rapidapi.com"
+var cityArray = JSON.parse(localStorage.getItem("cities")) || [];
+console.log(localStorage)
+// console.log(localStorage[0].state)
+ $("#search-btn").on("click", function(event){
+    event.preventDefault();
+    var cityName = $(".city-search").val().trim();
+    var stateName = $(".state-search").val().trim();
+    var searchObject = {
+        city: cityName,
+        state: stateName,
+        }
+    if (cityName === "") {
+        return;
     }
-})
-    .then(response => response.json())
-    .then(response => {
-        console.log(response);
-    })
-    .catch(err => {
-        console.error(err);
-    });
-
-
-
-var searchbtn = document.getElementById('search-btn')
-var price = document.getElementById('price');
-var contacts = document.getElementById('contacts');
-var requestData = "https://realty-in-us.p.rapidapi.com/properties/list-for-sale?state_code=MD&city=Annapolis&offset=0&limit=200&sort=relevance"
-price.addEventListener('click', function (event) {
-    event.preventDefault();
-    console.log('The price is right!');
-})
-contacts.addEventListener('click', function (event) {
-    event.preventDefault();
-    console.log('these are the contacts');
-})
-searchbtn.addEventListener('click', function (event) {
-    event.preventDefault();
-    console.log('im amazing');
-})
-function getApi() {
-    fetch("https://realty-in-us.p.rapidapi.com/properties/list-for-sale?state_code=MD&city=Annapolis&offset=0&limit=200&sort=relevance", {
+    console.log(cityName);
+    // makes sure previous city isnt listed in the array
+    if (cityArray.indexOf(cityName) === -1) {
+        cityArray.push(cityName);
+    }
+    console.log(cityArray);
+ searchWeatherApi(cityName);
+ getApi(cityName, stateName);
+    localStorage.setItem("cities", JSON.stringify(cityArray));
+    // console.log(cityArray);
+});
+function getApi(city,state) {
+    fetch("https://realty-in-us.p.rapidapi.com/properties/list-for-sale?state_code="+state+"&city="+city+"&offset=0&limit=200&sort=relevance", {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "80d8f34458msh69ffe15bf82e868p178d66jsnac41a9fd8412",
+            "x-rapidapi-key": "b2f0d79ea0mshef6e2494270b43ap1807fejsn68dd68d4adae",
             "x-rapidapi-host": "realty-in-us.p.rapidapi.com"
         }
     })
         .then(response => response.json())
         .then(response => {
             console.log(response);
-            console.log(response.listings[0].price)
-            console.log(response.listings[0].address)
+            // console.log(response.listings[0].price)
+            // console.log(response.listings[0].address)
             for (let i = 0; i < 6; i++) {
-                // var listingPrice = response.listings[i].price
-                // var listingPhoto = response.listings[i].photo
-                // var listingAddress = response.listings[i].address
-                // var listingBaths = response.listings[i].bath
-                // var listingBeds = response.listings[i].beds
-                // var listingSqft = response.listings[i].sqft
-
                 // card 1
-               
                 $(".card-text" + i).text("Price: " + response.listings[i].price);
-               
                 $(".bed-text" + i).text("Bed-Rooms: " + response.listings[i].beds);
-               
+                $(".bath-text" + i).text("Bath-Rooms: " + response.listings[i].baths)
                 $(".square-text" + i).text("Square-Feet: " + response.listings[i].sqft);
-                $(".img" + i).attr("src",response.listings[i].photo);
-               
-
+                $(".address-text" + i).text("Address: " + response.listings[i].address)
+                $(".img" + i).attr("src", response.listings[i].photo);
                 console.log(i);
                 console.log("card.text" + i);
-
-searchbtn.addEventListener('click', function (event) {
-    event.preventDefault();
-    console.log('im amazing');
-})
-
-
-function getApi() {
-
-    fetch("https://realty-in-us.p.rapidapi.com/properties/list-for-sale?state_code=MD&city=Annapolis&offset=0&limit=200&sort=relevance", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-key": "80d8f34458msh69ffe15bf82e868p178d66jsnac41a9fd8412",
-            "x-rapidapi-host": "realty-in-us.p.rapidapi.com"
-        }
-    })
-        .then(response => response.json())
-        .then(response => {
-            console.log(response);
-            //console.log(response.listings[0].price)
-            //console.log(response.listings[0].address)
-
-            for (let i = 0; i< response.listings.length; i++) {
-                //var listingPrice = response.listings[i].price
-                //var listingPhoto = response.listings[i].photo
-                //var listingAddress = response.listings[i].address
-                //var listingBaths = response.listings[i].bath
-                //var listingBeds = response.listings[i].beds
-                //var listingSqft = response.listings[i].sqft
-
             }
-
         })
         .catch(err => {
             console.error(err);
         });
 }
-
-getApi()
-
-//gotta create a function to call into another function to run the Api Function.
+function searchWeatherApi(cityName) {
+    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=imperial&appid=4e4346890dbabb049a4ba08f09b5e215';
+    fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data.main.temp);
+            console.log(data.name);
+            //  console.log(data);
+            $(".title").text(data.name);
+            $(".text").text("Temp: ");
+            $(".temp").text("Current Temp: "+ data.main.temp);
+            $(".footer-text1").text(data.name)
+        });
+}
+ getApi(cityArray[0].city, cityArray[0].state);
+//  searchWeatherApi(cityArray[0].city)
