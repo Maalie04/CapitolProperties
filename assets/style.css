@@ -32,29 +32,48 @@ body {
   margin-top: 27px;
   margin-left: 20px;
  } 
+ .navbar-item:hover {
+  color: blue;
+   } 
  .navbar-item1:hover {
 color: black;
  } 
+
  .navbar-item2:hover {
   color: black;
+   
    } 
  .navbar-item, .has-dropdown, .is-hoverable {
   color: black; 
+ 
  } 
+ 
  .navbar-link{
    color: black;
    font-size: 18px;
    margin-top: 14px;
  }
+
+ .navbar-link:hover{
+  color: blue;
+  font-size: 18px;
+  margin-top: 14px;
+  
+}
+
+
  .navbar-start {
    font-size: 20px
  }
+
 /* .form-inline {
   margin-left: 300px;
 }
+
 .form-inline, .my-2, .my-lg-0 {
  display: flex;
 } */
+
 /* font in the nav bar is white */
 a {
  color: white;
@@ -80,17 +99,24 @@ a {
   color: white;
   font-size: 10px;
   margin-left: 10px;
+  
 }
 .text:hover {
   color: blue;
+  
 }
+
 .title{
   color: white;
   margin-left: 10px;
 }
+
+
+
 /* p {
   align-self:baseline
 } */
+
 .temp{
   color: white;
   margin-left: 10px;
@@ -103,6 +129,8 @@ a {
   height: 26rem;
   width: 20.5rem;     
 }
+
+
 .card:hover{
   border: 3px solid black;
   border-radius: 20px;
@@ -111,6 +139,7 @@ a {
   height: 30rem;
   width: 28.5rem;     
 }
+
 .footer {
   background-color: blue; 
   margin-top: 50px;
@@ -119,6 +148,7 @@ a {
   font-size: 17px;
   color: white;
 }
+
 .footer-text {
   color: white;
   text-align: left;
